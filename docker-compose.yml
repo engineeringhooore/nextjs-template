@@ -1,0 +1,9 @@
+services:
+  next-app:
+    image: next-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - path: ./.env
+        required: true
