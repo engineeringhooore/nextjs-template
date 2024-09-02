@@ -24,13 +24,12 @@ export async function generateMetadata(props: {
   };
 }
 
-export default function Layout({
-  children,
-}: {
+export default function ClientPageLayout(props: {
   children: React.ReactNode;
   params: {
     lng: string;
   };
 }) {
+  const { children } = props;
   return children;
 }

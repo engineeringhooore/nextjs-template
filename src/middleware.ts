@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import acceptLanguage from "accept-language";
 import { fallbackLng, languages, cookieName } from "./i18n/settings";
+import { auth } from "@/auth";
 
 acceptLanguage.languages(languages);
 
@@ -11,7 +12,7 @@ export const config = {
   ],
 };
 
-export function middleware(req: NextRequest) {
+export const middleware = auth((req) => {
   let lng;
   const i18nCookie = req.cookies.get(cookieName);
   if (i18nCookie) {
@@ -46,4 +47,4 @@ export function middleware(req: NextRequest) {
   }
 
   return NextResponse.next();
-}
+});

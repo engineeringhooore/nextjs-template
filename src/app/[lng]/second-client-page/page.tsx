@@ -5,7 +5,7 @@ import { Header } from "@/components/header";
 import { useTranslation } from "@/i18n/client";
 import Link from "next/link";
 
-export default function Page(props: {
+export default function SecondClientPage(props: {
   params: {
     lng: string;
   };

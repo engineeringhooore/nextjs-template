@@ -6,7 +6,7 @@ import { useTranslation } from "@/i18n/client";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Page(props: {
+export default function ClientPage(props: {
   params: {
     lng: string;
   };
