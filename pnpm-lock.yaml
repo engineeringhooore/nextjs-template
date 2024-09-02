@@ -7,9 +7,21 @@ settings:
 importers:
   .:
     dependencies:
+      accept-language:
+        specifier: ^3.0.20
+        version: 3.0.20
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      i18next:
+        specifier: ^23.14.0
+        version: 23.14.0
+      i18next-browser-languagedetector:
+        specifier: ^8.0.0
+        version: 8.0.0
+      i18next-resources-to-backend:
+        specifier: ^1.2.1
+        version: 1.2.1
       next:
         specifier: 14.2.7
         version: 14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -19,9 +31,15 @@ importers:
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-cookie:
+        specifier: ^7.2.0
+        version: 7.2.0(react@18.3.1)
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-i18next:
+        specifier: ^15.0.1
+        version: 15.0.1(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -1046,6 +1064,12 @@ packages:
         integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==,
       }
 
+  "@types/hoist-non-react-statics@3.3.5":
+    resolution:
+      {
+        integrity: sha512-SbcrWzkKBw2cdwRTwQAswfpB9g9LJWfjtUeW/jvNwbhC8cpmmNYVePa+ncbUe0rGTQ7G3Ff6mYUN2VMfLVr+Sg==,
+      }
+
   "@types/json5@0.0.29":
     resolution:
       {
@@ -1292,6 +1316,12 @@ packages:
         integrity: sha512-d8HKbqIcya+GR67mkZbrzhS5kKhtp8dQLcmRZLGTscGVg7yImT82cIrhtn2L8+VujWcy6KZweApgNmPsTAO/UQ==,
       }
 
+  accept-language@3.0.20:
+    resolution:
+      {
+        integrity: sha512-xklPzRma4aoDEPk0ZfMjeuxB2FP4JBYlAR25OFUqCoOYDjYo6wGwAs49SnTN/MoB5VpnNX9tENfZ+vEIFmHQMQ==,
+      }
+
   acorn-jsx@5.3.2:
     resolution:
       {
@@ -1521,6 +1551,13 @@ packages:
       {
         integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==,
       }
+
+  bcp47@1.1.2:
+    resolution:
+      {
+        integrity: sha512-JnkkL4GUpOvvanH9AZPX38CxhiLsXMBicBY2IAtqiVN8YulGDQybUydWA4W6yAMtw6iShtw+8HEF6cfrTHU+UQ==,
+      }
+    engines: { node: ">=0.10" }
 
   binary-extensions@2.3.0:
     resolution:
@@ -1762,6 +1799,13 @@ packages:
     resolution:
       {
         integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==,
+      }
+    engines: { node: ">= 0.6" }
+
+  cookie@0.6.0:
+    resolution:
+      {
+        integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==,
       }
     engines: { node: ">= 0.6" }
 
@@ -2614,6 +2658,12 @@ packages:
         integrity: sha512-IScLbePpkvO846sIwOtOTDjutRMWdXdJmXdMvk6gCBHxFO8d+QKOQedyZSxFTTFYRSmlgSTDtXqqq4pcenBXLQ==,
       }
 
+  hoist-non-react-statics@3.3.2:
+    resolution:
+      {
+        integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==,
+      }
+
   html-encoding-sniffer@4.0.0:
     resolution:
       {
@@ -2625,6 +2675,12 @@ packages:
     resolution:
       {
         integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==,
+      }
+
+  html-parse-stringify@3.0.1:
+    resolution:
+      {
+        integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==,
       }
 
   http-proxy-agent@7.0.2:
@@ -2655,6 +2711,24 @@ packages:
       }
     engines: { node: ">=18" }
     hasBin: true
+
+  i18next-browser-languagedetector@8.0.0:
+    resolution:
+      {
+        integrity: sha512-zhXdJXTTCoG39QsrOCiOabnWj2jecouOqbchu3EfhtSHxIB5Uugnm9JaizenOy39h7ne3+fLikIjeW88+rgszw==,
+      }
+
+  i18next-resources-to-backend@1.2.1:
+    resolution:
+      {
+        integrity: sha512-okHbVA+HZ7n1/76MsfhPqDou0fptl2dAlhRDu2ideXloRRduzHsqDOznJBef+R3DFZnbvWoBW+KxJ7fnFjd6Yw==,
+      }
+
+  i18next@23.14.0:
+    resolution:
+      {
+        integrity: sha512-Y5GL4OdA8IU2geRrt2+Uc1iIhsjICdHZzT9tNwQ3TVqdNzgxHToGCKf/TPRP80vTCAP6svg2WbbJL+Gx5MFQVA==,
+      }
 
   iconv-lite@0.6.3:
     resolution:
@@ -3867,6 +3941,14 @@ packages:
         integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==,
       }
 
+  react-cookie@7.2.0:
+    resolution:
+      {
+        integrity: sha512-mqhPERUyfOljq5yJ4woDFI33bjEtigsl8JDJdPPeNhr0eSVZmBc/2Vdf8mFxOUktQxhxTR1T+uF0/FRTZyBEgw==,
+      }
+    peerDependencies:
+      react: ">= 16.3.0"
+
   react-dom@18.3.1:
     resolution:
       {
@@ -3874,6 +3956,22 @@ packages:
       }
     peerDependencies:
       react: ^18.3.1
+
+  react-i18next@15.0.1:
+    resolution:
+      {
+        integrity: sha512-NwxLqNM6CLbeGA9xPsjits0EnXdKgCRSS6cgkgOdNcPXqL+1fYNl8fBg1wmnnHvFy812Bt4IWTPE9zjoPmFj3w==,
+      }
+    peerDependencies:
+      i18next: ">= 23.2.3"
+      react: ">= 16.8.0"
+      react-dom: "*"
+      react-native: "*"
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
 
   react-is@16.13.1:
     resolution:
@@ -4584,6 +4682,12 @@ packages:
         integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==,
       }
 
+  universal-cookie@7.2.0:
+    resolution:
+      {
+        integrity: sha512-PvcyflJAYACJKr28HABxkGemML5vafHmiL4ICe3e+BEKXRMt0GaFLZhAwgv637kFFnnfiSJ8e6jknrKkMrU+PQ==,
+      }
+
   universalify@0.2.0:
     resolution:
       {
@@ -4698,6 +4802,13 @@ packages:
         optional: true
       jsdom:
         optional: true
+
+  void-elements@3.1.0:
+    resolution:
+      {
+        integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==,
+      }
+    engines: { node: ">=0.10.0" }
 
   w3c-xmlserializer@5.0.0:
     resolution:
@@ -5405,6 +5516,11 @@ snapshots:
 
   "@types/estree@1.0.5": {}
 
+  "@types/hoist-non-react-statics@3.3.5":
+    dependencies:
+      "@types/react": 18.3.5
+      hoist-non-react-statics: 3.3.2
+
   "@types/json5@0.0.29": {}
 
   "@types/mute-stream@0.0.4":
@@ -5621,6 +5737,10 @@ snapshots:
       loupe: 3.1.1
       tinyrainbow: 1.2.0
 
+  accept-language@3.0.20:
+    dependencies:
+      bcp47: 1.1.2
+
   acorn-jsx@5.3.2(acorn@8.12.1):
     dependencies:
       acorn: 8.12.1
@@ -5770,6 +5890,8 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
+  bcp47@1.1.2: {}
+
   binary-extensions@2.3.0: {}
 
   brace-expansion@1.1.11:
@@ -5903,6 +6025,8 @@ snapshots:
   convert-source-map@2.0.0: {}
 
   cookie@0.5.0: {}
+
+  cookie@0.6.0: {}
 
   cross-spawn@7.0.3:
     dependencies:
@@ -6658,12 +6782,20 @@ snapshots:
 
   headers-polyfill@4.0.3: {}
 
+  hoist-non-react-statics@3.3.2:
+    dependencies:
+      react-is: 16.13.1
+
   html-encoding-sniffer@4.0.0:
     dependencies:
       whatwg-encoding: 3.1.1
     optional: true
 
   html-escaper@2.0.2: {}
+
+  html-parse-stringify@3.0.1:
+    dependencies:
+      void-elements: 3.1.0
 
   http-proxy-agent@7.0.2:
     dependencies:
@@ -6684,6 +6816,18 @@ snapshots:
   human-signals@5.0.0: {}
 
   husky@9.1.5: {}
+
+  i18next-browser-languagedetector@8.0.0:
+    dependencies:
+      "@babel/runtime": 7.25.6
+
+  i18next-resources-to-backend@1.2.1:
+    dependencies:
+      "@babel/runtime": 7.25.6
+
+  i18next@23.14.0:
+    dependencies:
+      "@babel/runtime": 7.25.6
 
   iconv-lite@0.6.3:
     dependencies:
@@ -7347,11 +7491,27 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  react-cookie@7.2.0(react@18.3.1):
+    dependencies:
+      "@types/hoist-non-react-statics": 3.3.5
+      hoist-non-react-statics: 3.3.2
+      react: 18.3.1
+      universal-cookie: 7.2.0
+
   react-dom@18.3.1(react@18.3.1):
     dependencies:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-i18next@15.0.1(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      "@babel/runtime": 7.25.6
+      html-parse-stringify: 3.0.1
+      i18next: 23.14.0
+      react: 18.3.1
+    optionalDependencies:
+      react-dom: 18.3.1(react@18.3.1)
 
   react-is@16.13.1: {}
 
@@ -7811,6 +7971,11 @@ snapshots:
 
   undici-types@6.19.8: {}
 
+  universal-cookie@7.2.0:
+    dependencies:
+      "@types/cookie": 0.6.0
+      cookie: 0.6.0
+
   universalify@0.2.0: {}
 
   update-browserslist-db@1.1.0(browserslist@4.23.3):
@@ -7902,6 +8067,8 @@ snapshots:
       - sugarss
       - supports-color
       - terser
+
+  void-elements@3.1.0: {}
 
   w3c-xmlserializer@5.0.0:
     dependencies:
