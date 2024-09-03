@@ -105,6 +105,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
         return token;
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error("Error refreshing access_token", error);
         // If we fail to refresh the token, return an error so we can handle it on the page
         token.error = "RefreshTokenError";
