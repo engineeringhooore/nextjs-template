@@ -1,50 +1,21 @@
-import { NextResponse } from "next/server";
-import acceptLanguage from "accept-language";
-import { fallbackLng, languages, cookieName } from "./i18n/settings";
 import { auth } from "@/auth";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
-acceptLanguage.languages(languages);
+export default auth(createMiddleware(routing));
 
 export const config = {
-  // matcher: '/:lng*'
+  // Match only internationalized pathnames
   matcher: [
-    "/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest).*)",
+    // Enable a redirect to a matching locale at the root
+    "/",
+
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    "/(en)/:path*",
+
+    // Enable redirects that add missing locales
+    // (e.g. `/pathnames` -> `/en/pathnames`)
+    "/((?!_next|_vercel|.*\\..*).*)",
   ],
 };
-
-export const middleware = auth((req) => {
-  let lng;
-  const i18nCookie = req.cookies.get(cookieName);
-  if (i18nCookie) {
-    lng = acceptLanguage.get(i18nCookie.value);
-  }
-  if (!lng) {
-    lng = acceptLanguage.get(req.headers.get("Accept-Language"));
-  }
-  if (!lng) {
-    lng = fallbackLng;
-  }
-
-  // Redirect if lng in path is not supported
-  if (
-    !languages.some((loc) => req.nextUrl.pathname.startsWith(`/${loc}`)) &&
-    !req.nextUrl.pathname.startsWith("/_next")
-  ) {
-    return NextResponse.redirect(
-      new URL(`/${lng}${req.nextUrl.pathname}`, req.url),
-    );
-  }
-
-  const refererHeader = req.headers.get("referer");
-  if (refererHeader) {
-    const refererUrl = new URL(refererHeader);
-    const lngInReferer = languages.find((l) =>
-      refererUrl.pathname.startsWith(`/${l}`),
-    );
-    const response = NextResponse.next();
-    if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
-    return response;
-  }
-
-  return NextResponse.next();
-});

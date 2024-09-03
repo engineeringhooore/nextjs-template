@@ -1,0 +1,32 @@
+{
+  "translation": {
+    "title": "Hello From Nextjs Template",
+    "sign-out-button": "Sign Out"
+  },
+  "add-todo-form": {
+    "add-todo-placeholder": "What are you going to do?",
+    "add-button": "Add"
+  },
+  "dashboard": {
+    "title": "Hi from dashboard"
+  },
+  "edit-todo-form": {
+    "edit-note-label": "Note",
+    "edit-note-placeholder": "What are you going to do?",
+    "edit-attachment-label": "Attachment",
+    "edit-button": "Edit"
+  },
+  "not-found-page": {
+    "title": "404",
+    "description": "This page could not be found."
+  },
+  "sign-in-form": {
+    "username-label": "Username",
+    "password-label": "Password",
+    "sign-in-button": "Sign In"
+  },
+  "todo-page": {
+    "detail-link": "Check the Detail"
+  },
+  "todo-detail-page": { "delete-button": "Delete" }
+}

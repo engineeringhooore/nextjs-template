@@ -28,6 +28,9 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.20
         version: 5.0.0-beta.20(next@14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      next-intl:
+        specifier: ^3.19.0
+        version: 3.19.0(next@14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -599,6 +602,36 @@ packages:
         integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==,
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
+
+  "@formatjs/ecma402-abstract@2.0.0":
+    resolution:
+      {
+        integrity: sha512-rRqXOqdFmk7RYvj4khklyqzcfQl9vEL/usogncBHRZfZBDOwMGuSRNFl02fu5KGHXdbinju+YXyuR+Nk8xlr/g==,
+      }
+
+  "@formatjs/fast-memoize@2.2.0":
+    resolution:
+      {
+        integrity: sha512-hnk/nY8FyrL5YxwP9e4r9dqeM6cAbo8PeU9UjyXojZMNvVad2Z06FAVHyR3Ecw6fza+0GH7vdJgiKIVXTMbSBA==,
+      }
+
+  "@formatjs/icu-messageformat-parser@2.7.8":
+    resolution:
+      {
+        integrity: sha512-nBZJYmhpcSX0WeJ5SDYUkZ42AgR3xiyhNCsQweFx3cz/ULJjym8bHAzWKvG5e2+1XO98dBYC0fWeeAECAVSwLA==,
+      }
+
+  "@formatjs/icu-skeleton-parser@1.8.2":
+    resolution:
+      {
+        integrity: sha512-k4ERKgw7aKGWJZgTarIcNEmvyTVD9FYh0mTrrBMHZ1b8hUu6iOJ4SzsZlo3UNAvHYa+PnvntIwRPt1/vy4nA9Q==,
+      }
+
+  "@formatjs/intl-localematcher@0.5.4":
+    resolution:
+      {
+        integrity: sha512-zTwEpWOzZ2CiKcB93BLngUX59hQkuZjT2+SAQEscSm52peDW/getsawMcWF1rGRpMCX6D7nSJA3CzJ8gn13N/g==,
+      }
 
   "@humanwhocodes/config-array@0.11.14":
     resolution:
@@ -2814,6 +2847,12 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  intl-messageformat@10.5.14:
+    resolution:
+      {
+        integrity: sha512-IjC6sI0X7YRjjyVH9aUgdftcmZK7WXdHeil4KwbjDnRWjnVitKpAx3rr6t6di1joFp5188VqKcobOPA6mCLG/w==,
+      }
+
   is-arguments@1.1.1:
     resolution:
       {
@@ -3479,6 +3518,13 @@ packages:
         integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==,
       }
 
+  negotiator@0.6.3:
+    resolution:
+      {
+        integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==,
+      }
+    engines: { node: ">= 0.6" }
+
   next-auth@5.0.0-beta.20:
     resolution:
       {
@@ -3497,6 +3543,15 @@ packages:
         optional: true
       nodemailer:
         optional: true
+
+  next-intl@3.19.0:
+    resolution:
+      {
+        integrity: sha512-ciiHYBwR3ztoMdJZgFmt0LII7GYTsLA/MFt3y681q4Lw4fI5EYNCZSYb9XA/BIt3ZX5S1TLUP1uOERy1dIQvMg==,
+      }
+    peerDependencies:
+      next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   next-themes@0.3.0:
     resolution:
@@ -4796,6 +4851,14 @@ packages:
         integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==,
       }
 
+  use-intl@3.19.0:
+    resolution:
+      {
+        integrity: sha512-JOA73+YdtArxkvFKrneLAhH55m+x+sA9Wj8w8rYkHkHvcW/76w5T3szSmBG063vH3UqLoIKlsDVBBUfpkB7GMg==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
   util-deprecate@1.0.2:
     resolution:
       {
@@ -5353,6 +5416,30 @@ snapshots:
       - supports-color
 
   "@eslint/js@8.57.0": {}
+
+  "@formatjs/ecma402-abstract@2.0.0":
+    dependencies:
+      "@formatjs/intl-localematcher": 0.5.4
+      tslib: 2.7.0
+
+  "@formatjs/fast-memoize@2.2.0":
+    dependencies:
+      tslib: 2.7.0
+
+  "@formatjs/icu-messageformat-parser@2.7.8":
+    dependencies:
+      "@formatjs/ecma402-abstract": 2.0.0
+      "@formatjs/icu-skeleton-parser": 1.8.2
+      tslib: 2.7.0
+
+  "@formatjs/icu-skeleton-parser@1.8.2":
+    dependencies:
+      "@formatjs/ecma402-abstract": 2.0.0
+      tslib: 2.7.0
+
+  "@formatjs/intl-localematcher@0.5.4":
+    dependencies:
+      tslib: 2.7.0
 
   "@humanwhocodes/config-array@0.11.14":
     dependencies:
@@ -6956,6 +7043,13 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.0.6
 
+  intl-messageformat@10.5.14:
+    dependencies:
+      "@formatjs/ecma402-abstract": 2.0.0
+      "@formatjs/fast-memoize": 2.2.0
+      "@formatjs/icu-messageformat-parser": 2.7.8
+      tslib: 2.7.0
+
   is-arguments@1.1.1:
     dependencies:
       call-bind: 1.0.7
@@ -7348,11 +7442,21 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
+  negotiator@0.6.3: {}
+
   next-auth@5.0.0-beta.20(next@14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
       "@auth/core": 0.34.2
       next: 14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
+
+  next-intl@3.19.0(next@14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+    dependencies:
+      "@formatjs/intl-localematcher": 0.5.4
+      negotiator: 0.6.3
+      next: 14.2.7(@babel/core@7.25.2)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      use-intl: 3.19.0(react@18.3.1)
 
   next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -8109,6 +8213,12 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+
+  use-intl@3.19.0(react@18.3.1):
+    dependencies:
+      "@formatjs/fast-memoize": 2.2.0
+      intl-messageformat: 10.5.14
+      react: 18.3.1
 
   util-deprecate@1.0.2: {}
 

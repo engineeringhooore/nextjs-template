@@ -1,6 +1,6 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 import {
   signIn as authSignIn,
   signOut as authSignOut,
@@ -9,6 +9,7 @@ import {
 import type { SignInState } from "./types";
 
 export async function signIn(
+  redirectUrl: string,
   _: SignInState,
   formData: FormData,
 ): Promise<SignInState> {
@@ -24,9 +25,9 @@ export async function signIn(
   }
 
   await authSignIn("credentials", formData);
-  return redirect("/en/dashboard");
+  return redirect(redirectUrl);
 }
 
-export async function signOut(): Promise<void> {
-  return await authSignOut({ redirectTo: "/sign-in", redirect: true });
+export async function signOut(redirectUrl: string): Promise<void> {
+  return await authSignOut({ redirectTo: redirectUrl, redirect: true });
 }
