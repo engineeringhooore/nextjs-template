@@ -8,7 +8,7 @@ export default async function AuthLayout(
 ) {
   const session = await auth();
   if (session && session.user) {
-    redirect("/dashboard");
+    return redirect("/dashboard");
   }
 
   const { children } = props;

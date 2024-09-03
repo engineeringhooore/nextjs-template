@@ -15,7 +15,7 @@ export default async function DashboardLayout(props: {
 
   const session = await auth();
   if (!session || !session.user) {
-    redirect(`/sign-in`);
+    return redirect(`/sign-in`);
   }
 
   const { children } = props;
