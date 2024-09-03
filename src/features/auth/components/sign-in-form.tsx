@@ -11,7 +11,6 @@ const initialState: SignInState = {
 };
 
 export type SignInFormProps = {
-  className?: string;
   action: (prevState: SignInState, formData: FormData) => Promise<SignInState>;
 };
 
@@ -23,10 +22,7 @@ export function SignInForm({ action: actionProps }: SignInFormProps) {
   );
 
   return (
-    <form
-      action={action}
-      className="tw-mb-6 tw-flex tw-w-full tw-max-w-[350px] tw-flex-col"
-    >
+    <form action={action} className="tw-flex tw-w-full tw-flex-col">
       <label className="tw-mb-4 tw-flex tw-flex-col tw-items-start tw-gap-1">
         {t("username-label")}
         <Input name="username" disabled={isPending} />
