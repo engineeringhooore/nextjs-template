@@ -28,14 +28,14 @@ export function SignInForm({ action: actionProps }: SignInFormProps) {
         <Input name="username" disabled={isPending} />
       </label>
       {state?.errors?.username && (
-        <p className="tw-mb-4 tw-text-start">{state.errors.username}</p>
+        <p className="tw-mb-4">{state.errors.username}</p>
       )}
       <label className="tw-mb-4 tw-flex tw-flex-col tw-items-start tw-gap-1">
         {t("password-label")}
         <Input name="password" type="password" disabled={isPending} />
       </label>
       {state?.errors?.password && (
-        <p className="tw-mb-4 tw-text-start">{state.errors.password}</p>
+        <p className="tw-mb-4">{state.errors.password}</p>
       )}
       <Button disabled={isPending}>{t("sign-in-button")}</Button>
     </form>
