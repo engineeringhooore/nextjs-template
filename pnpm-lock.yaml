@@ -28,6 +28,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      rtl-detect:
+        specifier: ^1.1.2
+        version: 1.1.2
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -59,6 +62,9 @@ importers:
       "@types/react-dom":
         specifier: ^18.3.0
         version: 18.3.0
+      "@types/rtl-detect":
+        specifier: ^1.0.3
+        version: 1.0.3
       "@typescript-eslint/eslint-plugin":
         specifier: ^8.3.0
         version: 8.3.0(@typescript-eslint/parser@8.3.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
@@ -1148,6 +1154,12 @@ packages:
     resolution:
       {
         integrity: sha512-WeqMfGJLGuLCqHGYRGHxnKrXcTitc6L/nBUWfWPcTarG3t9PsquqUMuVeXZeca+mglY4Vo5GZjCi0A3Or2lnxA==,
+      }
+
+  "@types/rtl-detect@1.0.3":
+    resolution:
+      {
+        integrity: sha512-qpstuHivwg/HoXxRrBo5/r/OVx5M2SkqJpVu2haasdLctt+jMGHWjqdbI0LL7Rk2wRmN/UHdHK4JZg9RUMcvKA==,
       }
 
   "@types/statuses@2.0.5":
@@ -4171,6 +4183,12 @@ packages:
         integrity: sha512-TrEMa7JGdVm0UThDJSx7ddw5nVm3UJS9o9CCIZ72B1vSyEZoziDqBYP3XIoi/12lKrJR8rE3jeFHMok2F/Mnsg==,
       }
 
+  rtl-detect@1.1.2:
+    resolution:
+      {
+        integrity: sha512-PGMBq03+TTG/p/cRB7HCLKJ1MgDIi07+QU1faSjiYRfmY5UsAttV9Hs08jDAHVwcOwmVLcSJkpwyfXszVjWfIQ==,
+      }
+
   run-parallel@1.2.0:
     resolution:
       {
@@ -5621,6 +5639,8 @@ snapshots:
     dependencies:
       "@types/prop-types": 15.7.12
       csstype: 3.1.3
+
+  "@types/rtl-detect@1.0.3": {}
 
   "@types/statuses@2.0.5": {}
 
@@ -7685,6 +7705,8 @@ snapshots:
 
   rrweb-cssom@0.7.1:
     optional: true
+
+  rtl-detect@1.1.2: {}
 
   run-parallel@1.2.0:
     dependencies:
