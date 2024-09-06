@@ -1,5 +1,5 @@
 import { z } from "zod";
-import NextAuth, { type DefaultSession } from "next-auth";
+import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
 // The `JWT` interface can be found in the `next-auth/jwt` submodule
@@ -11,6 +11,7 @@ declare module "next-auth/jwt" {
   interface JWT {
     access_token: string;
     refresh_token: string;
+    expires_at: number;
   }
 }
 
@@ -18,28 +19,12 @@ declare module "next-auth" {
   interface User {
     access_token: string;
     refresh_token: string;
-  }
-
-  /**
-   * Returned by `auth`, `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
-   */
-  interface Session {
-    user: {
-      /** JWT token from auth server */
-      access_token: string;
-      refresh_token: string;
-      /**
-       * By default, TypeScript merges new interface properties and overwrites existing ones.
-       * In this case, the default session user properties will be overwritten,
-       * with the new ones defined above. To keep the default session user properties,
-       * you need to add them back into the newly declared interface.
-       */
-    } & DefaultSession["user"];
+    expires_at: number;
   }
 }
 
 export const signInSchema = z.object({
-  username: z.string(),
+  email: z.string().email(),
   password: z.string(),
 });
 
@@ -47,15 +32,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        username: {},
+        email: {},
         password: {},
+        remember_me: {},
       },
       authorize: async (credentials) => {
-        const { username } = await signInSchema.parseAsync(credentials);
+        const { email } = await signInSchema.parseAsync(credentials);
         return {
-          name: username,
+          email: email,
           access_token: "access_token",
           refresh_token: "refresh_token",
+          expires_at: Date.now() + 1 * 60 * 60 * 1000, // 1 hour
         };
       },
     }),
@@ -69,7 +56,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           ...token,
           access_token: user.access_token,
           refresh_token: user.refresh_token,
+          expires_at: user.expires_at,
         };
+      }
+
+      if (Date.now() < token.expires_at * 1000) {
+        // Subsequent logins, but the `access_token` is still valid
+        return token;
       }
 
       // Subsequent logins, try to refresh it
@@ -95,10 +88,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         const newTokens = tokensOrError as {
           access_token: string;
+          expires_in: number;
           refresh_token?: string;
         };
 
         token.access_token = newTokens.access_token;
+        token.expires_at = Math.floor(Date.now() / 1000 + newTokens.expires_in);
+
         // Some providers only issue refresh tokens once, so preserve if we did not get a new one
         if (newTokens.refresh_token) {
           token.refresh_token = newTokens.refresh_token;
