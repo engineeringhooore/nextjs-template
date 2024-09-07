@@ -1,6 +1,6 @@
 services:
-  next-app:
-    image: next-app
+  next-template:
+    image: next-template
     build:
       context: .
       dockerfile: Dockerfile
