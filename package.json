@@ -12,7 +12,7 @@
     "build": "next build",
     "start": "node --env-file=./.env .next/standalone/server.js",
     "lint": "next lint",
-    "ts:check": "tsc",
+    "ts:check": "tsc --noEmit",
     "format": "prettier . --write --ignore-unknown",
     "prepare": "husky",
     "test": "TZ=UTC vitest run -c ./vitest.config.ts",
